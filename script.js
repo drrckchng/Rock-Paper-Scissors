@@ -5,14 +5,35 @@ function computerPlay() {
     } else if (randomNumber === 1) {
         return "Paper";
     } else {
-        return "Scissor";
+        return "Scissors";
     }
 }
 
 function playRound(playerSelection, computerSelection) {
     // validate player selection
-    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase;
+    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+    if (playerSelection === computerSelection ) {
+        return "Tie! You both chose " + playerSelection;
+    } else if (playerSelection === "Rock") {
+        if (computerSelection === "Paper") {
+            return "You lose! Paper beats Rock!";
+        } else {
+            return "You win! Rock beats Scissors!";
+        }
+    } else if (playerSelection === "Paper") {
+        if (computerSelection === "Scissors") {
+            return "You lose! Scissors beats Paper!";
+        } else {
+            return "You win! Paper beats Rock!";
+        }
+    } else if (playerSelection === "Scissors") {
+        if (computerSelection === "Rock") {
+            return "You lose! Rock beats Scissors!";
+        } else {
+            return "You win! Scissors beats Paper!";
+        }
+    } 
 }
 
-let testing = "adfEDDASde";
-testing = testing.charAt(0).toUpperCase() + testing.slice(1).toLowerCase();
+const playerSelection = "rock";
+const computerSelection = computerPlay();
