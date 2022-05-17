@@ -35,13 +35,27 @@ function playRound(playerSelection, computerSelection) {
     } 
 }
 
-
-// call playRound() to play 5 round game that keeps score and reports winner or loser at the end
 function game() {
-
+    let playerWins = 0;
+    let cpuWins = 0;
     for(let i = 0; i < 5; i++){
         let userChoice = prompt("Rock, paper, or scissors?");
         let cpuChoice = computerPlay();
-        console.log(playRound(userChoice, cpuChoice));
+        let result = playRound(userChoice, cpuChoice);
+        if(result.slice(0,7) === "You win") {
+            playerWins++;
+        } else if (result.slice(0,8) === "You lose") {
+            cpuWins++;
+        }
+        console.log(result);
+        console.log("Player:" + playerWins);
+        console.log("CPU:" + cpuWins);
+    }
+    if(playerWins == cpuWins) {
+        console.log("That's a wrap... It's a tie!");
+    } else if(playerWins > cpuWins) {
+        console.log("Congratulations! You win!");
+    } else {
+        console.log("Game over... You lost");
     }
 }
