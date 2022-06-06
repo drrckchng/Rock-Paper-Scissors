@@ -1,39 +1,42 @@
 function computerPlay() {
     randomNumber =  Math.floor(Math.random() * 3);
     if(randomNumber === 0) {
-        return "Rock";
+        return "rock";
     } else if(randomNumber === 1) {
-        return "Paper";
+        return "paper";
     } else {
-        return "Scissors";
+        return "scissors";
     }
 }
 
 function playRound(playerSelection, computerSelection) {
     // validate player selection
-    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+    playerSelection = playerSelection.toLowerCase();
     if(playerSelection === computerSelection ) {
         return "Tie! You both chose " + playerSelection;
-    } else if(playerSelection === "Rock") {
-        if (computerSelection === "Paper") {
+    } else if(playerSelection === "rock") {
+        if (computerSelection === "paper") {
             return "You lose! Paper beats Rock!";
         } else {
             return "You win! Rock beats Scissors!";
         }
-    } else if(playerSelection === "Paper") {
-        if(computerSelection === "Scissors") {
+    } else if(playerSelection === "paper") {
+        if(computerSelection === "scissors") {
             return "You lose! Scissors beats Paper!";
         } else {
             return "You win! Paper beats Rock!";
         }
-    } else if(playerSelection === "Scissors") {
-        if(computerSelection === "Rock") {
+    } else if(playerSelection === "scissors") {
+        if(computerSelection === "rock") {
             return "You lose! Rock beats Scissors!";
         } else {
             return "You win! Scissors beats Paper!";
         }
     } 
 }
+
+// On page load, game is loaded and set.
+// 
 
 function game() {
     let playerWins = 0;
