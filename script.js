@@ -1,8 +1,3 @@
-const playerScore = document.getElementById('player-score');
-const cpuScore = document.getElementById('cpu-score');
-const gameText = document.getElementById('game-text');
-
-
 function computerPlay() {
     randomNumber =  Math.floor(Math.random() * 3);
     if(randomNumber === 0) {
@@ -75,3 +70,10 @@ wrapper.addEventListener('click', (event) => {
 
 let playerWins = 0;
 let cpuWins = 0;
+
+const playerScore = document.getElementById('player-score');
+const cpuScore = document.getElementById('cpu-score');
+const gameText = document.getElementById('game-text');
+
+// Reset game upon reaching 5 rounds
+// Maybe using alert or clearing board?
