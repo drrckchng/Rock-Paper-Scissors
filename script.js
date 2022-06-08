@@ -36,10 +36,8 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game(choice) {
-
     let userChoice = choice;
     let cpuChoice = computerPlay();
-
     let result = playRound(userChoice, cpuChoice);
     if(result.slice(0,7) === "You win") {
         playerWins++;
@@ -47,16 +45,39 @@ function game(choice) {
         cpuWins++;
     }
     gameText.innerText = result;
+    updateScore();
+    gameCounter++;
+    checkGameOver();
+}
+
+function updateScore() {
     playerScore.innerText = "Player: " + playerWins;
     cpuScore.innerText = "CPU: " + cpuWins;
+}
 
-    if(playerWins == cpuWins) {
-        console.log("That's a wrap... It's a tie!");
-    } else if(playerWins > cpuWins) {
-        console.log("Congratulations! You win!");
-    } else {
-        console.log("Game over... You lost");
+
+// Game is alerting before upadting the score...
+// Possibly adding a button that's hidden until conditions are met
+// to start "new game"
+function checkGameOver() {
+    if(gameCounter == 5) {
+        if(playerWins == cpuWins) {
+            alert("That's a wrap... It's a tie!");
+        } else if(playerWins > cpuWins) {
+            alert("Congratulations! You win!");
+        } else {
+            alert("Game over... You lost");
+        }
+        resetGame();
     }
+}
+
+function resetGame() {
+    gameCounter = 0;
+        playerWins = 0;
+        cpuWins = 0;
+        updateScore();
+        gameText.innerText = "Welcome to Rock Paper Scissors";
 }
 
 const wrapper = document.getElementById('wrapper');
@@ -70,10 +91,8 @@ wrapper.addEventListener('click', (event) => {
 
 let playerWins = 0;
 let cpuWins = 0;
+let gameCounter = 0;
 
 const playerScore = document.getElementById('player-score');
 const cpuScore = document.getElementById('cpu-score');
 const gameText = document.getElementById('game-text');
-
-// Reset game upon reaching 5 rounds
-// Maybe using alert or clearing board?
