@@ -1,3 +1,8 @@
+const playerScore = document.getElementById('player-score');
+const cpuScore = document.getElementById('cpu-score');
+const gameText = document.getElementById('game-text');
+
+
 function computerPlay() {
     randomNumber =  Math.floor(Math.random() * 3);
     if(randomNumber === 0) {
@@ -46,9 +51,9 @@ function game(choice) {
     } else if (result.slice(0,8) === "You lose") {
         cpuWins++;
     }
-    console.log(result);
-    console.log("Player:" + playerWins);
-    console.log("CPU:" + cpuWins);
+    gameText.innerText = result;
+    playerScore.innerText = "Player: " + playerWins;
+    cpuScore.innerText = "CPU: " + cpuWins;
 
     if(playerWins == cpuWins) {
         console.log("That's a wrap... It's a tie!");
@@ -59,14 +64,6 @@ function game(choice) {
     }
 }
 
-// On page load, game is loaded and set.
-// On button click, an event listener on the button calls upon game()
-// will use event listener to determine which button was player choice
-// for now, play one round to get logic down
-// then... create logic for 5 round play and reset after 5 rounds
-// change console logs to DOM methods and add div to display results
-// https://stackoverflow.com/questions/49680484/how-to-add-one-event-listener-for-all-buttons
-//const userBtnChoices = document.querySelectorAll('.player-choice');
 const wrapper = document.getElementById('wrapper');
 wrapper.addEventListener('click', (event) => {
     const isButton = event.target.nodeName == 'BUTTON';
@@ -78,5 +75,3 @@ wrapper.addEventListener('click', (event) => {
 
 let playerWins = 0;
 let cpuWins = 0;
-
-//userBtnChoices.forEach(choice => choice.addEventListener('click', game(choice.innerHTML)));
