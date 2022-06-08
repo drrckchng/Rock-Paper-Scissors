@@ -36,31 +36,27 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game(choice) {
-    console.log("Test");
-    console.log(choice);
-    let playerWins = 0;
-    let cpuWins = 0;
 
-    //let userChoice = prompt("Rock, paper, or scissors?");
+    let userChoice = choice;
     let cpuChoice = computerPlay();
-    //console.log(cpuChoice);
-    //     let result = playRound(userChoice, cpuChoice);
-    //     if(result.slice(0,7) === "You win") {
-    //         playerWins++;
-    //     } else if (result.slice(0,8) === "You lose") {
-    //         cpuWins++;
-    //     }
-    //     console.log(result);
-    //     console.log("Player:" + playerWins);
-    //     console.log("CPU:" + cpuWins);
-    // }
-    // if(playerWins == cpuWins) {
-    //     console.log("That's a wrap... It's a tie!");
-    // } else if(playerWins > cpuWins) {
-    //     console.log("Congratulations! You win!");
-    // } else {
-    //     console.log("Game over... You lost");
-    // }
+
+    let result = playRound(userChoice, cpuChoice);
+    if(result.slice(0,7) === "You win") {
+        playerWins++;
+    } else if (result.slice(0,8) === "You lose") {
+        cpuWins++;
+    }
+    console.log(result);
+    console.log("Player:" + playerWins);
+    console.log("CPU:" + cpuWins);
+
+    if(playerWins == cpuWins) {
+        console.log("That's a wrap... It's a tie!");
+    } else if(playerWins > cpuWins) {
+        console.log("Congratulations! You win!");
+    } else {
+        console.log("Game over... You lost");
+    }
 }
 
 // On page load, game is loaded and set.
@@ -70,5 +66,17 @@ function game(choice) {
 // then... create logic for 5 round play and reset after 5 rounds
 // change console logs to DOM methods and add div to display results
 // https://stackoverflow.com/questions/49680484/how-to-add-one-event-listener-for-all-buttons
-const userBtnChoices = document.querySelectorAll('.player-choice');
-userBtnChoices.forEach(choice => choice.addEventListener('click', game(choice.innerHTML)));
+//const userBtnChoices = document.querySelectorAll('.player-choice');
+const wrapper = document.getElementById('wrapper');
+wrapper.addEventListener('click', (event) => {
+    const isButton = event.target.nodeName == 'BUTTON';
+    if(!isButton) {
+        return;
+    }
+    game(event.target.innerHTML);
+});
+
+let playerWins = 0;
+let cpuWins = 0;
+
+//userBtnChoices.forEach(choice => choice.addEventListener('click', game(choice.innerHTML)));
