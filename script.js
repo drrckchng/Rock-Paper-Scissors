@@ -57,19 +57,29 @@ function updateScore() {
 
 
 // Game is alerting before upadting the score...
-// Possibly adding a button that's hidden until conditions are met
-// to start "new game"
+// Simplest solution seem to be adding a element that indicates 
 function checkGameOver() {
-    if(gameCounter == 5) {
+    if(gameCounter == 5) { // game has ended
+        const resultDiv = document.getElementById('results');
+        const endMessage = document.createElement('p');
+        resultDiv.appendChild(endMessage);
         if(playerWins == cpuWins) {
-            alert("That's a wrap... It's a tie!");
+            endMessage.innerText = "That's a wrap... It's a tie!";
         } else if(playerWins > cpuWins) {
-            alert("Congratulations! You win!");
+            endMessage.innerText = "Congratulations! You win!";
         } else {
-            alert("Game over... You lost");
-        }
+            endMessage.innerText = "Game over... You lost";
+        } 
+        endMessage.remove();
         resetGame();
     }
+}
+
+function disableButton(bool) {
+    const buttons = document.querySelectorAll('.player-choice');
+    buttons.forEach((element) => {
+        element.disabled = bool;
+    });
 }
 
 function resetGame() {
@@ -96,3 +106,4 @@ let gameCounter = 0;
 const playerScore = document.getElementById('player-score');
 const cpuScore = document.getElementById('cpu-score');
 const gameText = document.getElementById('game-text');
+const buttonTest = document.getElementById('test');
