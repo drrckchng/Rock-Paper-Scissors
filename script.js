@@ -56,22 +56,33 @@ function updateScore() {
 }
 
 
-// Game is alerting before upadting the score...
-// Simplest solution seem to be adding a element that indicates 
 function checkGameOver() {
-    if(gameCounter == 5) { // game has ended
+    if(gameCounter == 5) { // Game has ended
+        disableButton(true);
+
+        // Create elements to put end game message
         const resultDiv = document.getElementById('results');
         const endMessage = document.createElement('p');
         resultDiv.appendChild(endMessage);
+
         if(playerWins == cpuWins) {
             endMessage.innerText = "That's a wrap... It's a tie!";
         } else if(playerWins > cpuWins) {
             endMessage.innerText = "Congratulations! You win!";
         } else {
             endMessage.innerText = "Game over... You lost";
-        } 
-        endMessage.remove();
-        resetGame();
+        }
+
+        // New game button to reset game
+        const newGameButton = document.createElement('button');
+        newGameButton.innerText = "New Game";
+        resultDiv.appendChild(newGameButton);
+        newGameButton.addEventListener('click', (event) => {
+            endMessage.remove();
+            disableButton(false);
+            resetGame();
+            newGameButton.remove();
+        });
     }
 }
 
@@ -86,7 +97,7 @@ function resetGame() {
     gameCounter = 0;
         playerWins = 0;
         cpuWins = 0;
-        updateScore();
+        updateScore(); // reset scores to 0 on DOM
         gameText.innerText = "Welcome to Rock Paper Scissors";
 }
 
@@ -99,10 +110,12 @@ wrapper.addEventListener('click', (event) => {
     game(event.target.innerHTML);
 });
 
+// Initialize game
 let playerWins = 0;
 let cpuWins = 0;
 let gameCounter = 0;
 
+// Grab elements from DOM
 const playerScore = document.getElementById('player-score');
 const cpuScore = document.getElementById('cpu-score');
 const gameText = document.getElementById('game-text');
