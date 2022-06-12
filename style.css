@@ -14,7 +14,7 @@ button {
 #results {
     display: flex;
     flex-direction: column;
-    width: 35%;
+    width: 50vh;
     font-size: 1em;
 }
 
@@ -31,7 +31,7 @@ button {
 
 #wrapper {
     display: flex;
-    width: 35%;
+    width: 50vh;
     justify-content: space-evenly;
 }
 
@@ -42,4 +42,8 @@ button {
     color: #f7ece1;
     width: 100px;
     height: 45px;
+}
+
+.gameover-container {
+
 }
