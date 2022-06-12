@@ -51,7 +51,7 @@ function game(choice) {
 }
 
 function updateScore() {
-    playerScore.innerText = "Player: " + playerWins;
+    playerScore.innerText = "You: " + playerWins;
     cpuScore.innerText = "CPU: " + cpuWins;
 }
 
