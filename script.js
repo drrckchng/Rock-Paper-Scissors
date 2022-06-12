@@ -45,7 +45,15 @@ function game(choice) {
         cpuWins++;
     }
     gameText.innerText = result;
-    // gameText.classList.add('show'); need to figure out how to reset animation
+    // animate results
+    gameText.animate([
+        {transform: 'scale(1.1)'},
+        {transform: 'scale(1.3)'},
+        {transform: 'scale(1)'}
+    ], {
+        duration: 300,
+        easing: 'ease-out'
+    });
     updateScore();
     gameCounter++;
     checkGameOver();
