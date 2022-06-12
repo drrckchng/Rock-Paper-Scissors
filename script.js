@@ -45,6 +45,7 @@ function game(choice) {
         cpuWins++;
     }
     gameText.innerText = result;
+    // gameText.classList.add('show'); need to figure out how to reset animation
     updateScore();
     gameCounter++;
     checkGameOver();
@@ -89,7 +90,7 @@ function resetGame() {
         playerWins = 0;
         cpuWins = 0;
         updateScore(); // reset scores to 0 on DOM
-        gameText.innerText = "Welcome to Rock Paper Scissors";
+        gameText.innerText = "Welcome to Rock Paper Scissors!";
 }
 
 const wrapper = document.getElementById('wrapper');
