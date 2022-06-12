@@ -58,30 +58,21 @@ function updateScore() {
 
 function checkGameOver() {
     if(gameCounter == 5) { // Game has ended
+
         disableButton(true);
-
-        // Create elements to put end game message
-        const resultDiv = document.getElementById('results');
-        const endMessage = document.createElement('p');
-        resultDiv.appendChild(endMessage);
-
+        modalContainer.classList.add('show');
         if(playerWins == cpuWins) {
-            endMessage.innerText = "That's a wrap... It's a tie!";
+            gameOverMsg.innerText = "That's a wrap... It's a tie!";
         } else if(playerWins > cpuWins) {
-            endMessage.innerText = "Congratulations! You win!";
+            gameOverMsg.innerText = "Congratulations! You win!";
         } else {
-            endMessage.innerText = "Game over... You lost";
+            gameOverMsg.innerText = "Game over... You lost";
         }
-
         // New game button to reset game
-        const newGameButton = document.createElement('button');
-        newGameButton.innerText = "New Game";
-        resultDiv.appendChild(newGameButton);
         newGameButton.addEventListener('click', (event) => {
-            endMessage.remove();
             disableButton(false);
             resetGame();
-            newGameButton.remove();
+            modalContainer.classList.remove('show');
         });
     }
 }
@@ -120,3 +111,6 @@ const playerScore = document.getElementById('player-score');
 const cpuScore = document.getElementById('cpu-score');
 const gameText = document.getElementById('game-text');
 const buttonTest = document.getElementById('test');
+const modalContainer = document.getElementById('gameover-container');
+const gameOverMsg = document.getElementById('gameover-message');
+const newGameButton = document.getElementById('new-game');

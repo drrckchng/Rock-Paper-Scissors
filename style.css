@@ -45,7 +45,7 @@ button {
     height: 45px;
 }
 
-.gameover-container {
+#gameover-container {
     background-color: rgba(0, 0, 0, .7);
     position: fixed;
     top: 0;
@@ -57,6 +57,11 @@ button {
     justify-content: center;
     opacity: 0;
     pointer-events: none;
+}
+
+#gameover-container.show {
+    pointer-events: auto;
+    opacity: 1;
 }
 
 .modal {

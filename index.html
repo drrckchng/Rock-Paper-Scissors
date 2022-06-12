@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="script.js" defer></script>
     <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
@@ -21,13 +21,13 @@
     <div id="wrapper">
         <button class="player-choice">Rock</button>
         <button class="player-choice">Paper</button>
-        <button class="player-choice">Scissors</button>
+        <button class="player-choice" id="testing">Scissors</button>
     </div>
-    
-    <div class="gameover-container">
+
+    <div id="gameover-container">
         <div class="modal">
-            <p>Congratulations! You Win!</p>
-            <button id=="new-game">New Game</button>
+            <p id="gameover-message">Congratulations! You Win!</p>
+            <button id="new-game">New Game</button>
         </div>
     </div>
 
