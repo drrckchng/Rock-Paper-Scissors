@@ -36,6 +36,23 @@ button {
     border-radius: 6px;
     background-color: #636669;
     color: #f7ece1;
+    cursor: pointer;
+
+}
+
+.player-choice {
+    box-shadow: inset 0 0 0 0 #37ff8b;
+    transition: ease-out 0.2s;
+    font-size: 1.2em;
+    width: 150px;
+    height: 60px;
+    font-size: 1.2em;
+
+}
+
+.player-choice:hover{
+    box-shadow: inset 150px 0 0 0 #37ff8b;
+    color: #333533;
 }
 
 
@@ -70,12 +87,6 @@ button {
     display: flex;
     width: 50vh;
     justify-content: space-evenly;
-}
-
-#wrapper button {
-    font-size: 1.2em;
-    width: 150px;
-    height: 60px;
 }
 
 #gameover-container {
@@ -124,4 +135,10 @@ button {
     height: 50px;
     margin: 40px;
     font-size: 20px;
+    box-shadow: inset 0 0 0 0 #37ff8b;
+    transition: ease-out 0.2s;
+}
+
+.modal button:hover {
+    box-shadow: inset 150px 0 0 0 #FDFD96;
 }
