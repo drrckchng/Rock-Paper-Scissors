@@ -1,5 +1,5 @@
 # Rock Paper Scissors
-Javascript rock, paper, scissor game from The Odin Project curriculum
+Vanilla JS rock, paper, scissor game from The Odin Project curriculum
 
 [Link to page](https://drrckchng.github.io/Rock-Paper-Scissors/)
 
